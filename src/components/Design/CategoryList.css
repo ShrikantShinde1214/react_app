@@ -1,14 +1,13 @@
-.categoryList{
+.category-List{
     margin: 0.5rem;
-    /* margin: 0.6rem; */
 }
 
 h4{
     font-weight: lighter;
-    color: #09C16C;
-    border: 1px solid #03b66293;
-    padding: 0.3rem;
-    font-size: 1.3rem;
+    color:#00ff80;
+    border: 1px solid #d2f70593;
+    padding: 0.2rem;
+    font-size: 1.4rem;
     text-align: center;
     background-color: #0E1224;
 }
@@ -18,3 +17,4 @@ h4:hover{
     background-color: #09C16C;
     border: 1px solid white;
 }
+  

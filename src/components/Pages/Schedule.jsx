@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from 'react';
-import { FaPlusSquare } from 'react-icons/fa';
-import "../CSS/Schedule.css";
-import Card from "./Card";
-import CreateTask from '../../Models/CreateTask';
+import React, { useState,useEffect } from "react";
+import {FaPlusCircle} from "react-icons/fa";
+import "../Design/Schedule.css";
+import Card from "./Cards";
+import CreateTask from "../../Configs/CreateTask";
 
 
 const Schedule = () => {
@@ -23,12 +23,12 @@ const Schedule = () => {
       let obj = JSON.parse(arr)
        setTaskList(obj)
      }
-   },[])//Empty Array
+   },[])//Empty Array Do Not Reloading In Again and Again
   
   const saveTask = (taskObj) =>{
     let tempList = taskList
     tempList.push(taskObj)
-    localStorage.setItem("taskList", JSON.stringify(tempList))//Data Stored In LocalStorage
+    localStorage.setItem("taskList", JSON.stringify(tempList))//Temporoery Data Stored In LocalStorage.!
     setModal(false)
     setTaskList(tempList)
   }
@@ -51,18 +51,18 @@ const Schedule = () => {
   }
 
   return (
-    <>
+    <React.Fragment>
 
-      <div className='scheddule_list'>
-    
-        <FaPlusSquare className="add_icon" onClick={() => setModal(true)} />
-          <div className='card_component'>
+      <div className="schedule-list">
+        <FaPlusCircle className="add-icon" onClick={() => setModal(true)} />
+          <div className="card_component">
           {taskList && taskList.map((obj ,index)=> <Card taskObj = {obj} index={index} deleteTask={deleteTask} updateListArray ={updateListArray}/>) }
           </div >
       </div>
-          {/* Then To A passing a props */}
+          {/* { //send The Data Using Props.! */} 
       <CreateTask toggle={toggle} modal={modal} save ={saveTask} />
-    </>
+      
+    </React.Fragment>
   )
 }
 

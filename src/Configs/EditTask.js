@@ -1,15 +1,13 @@
-import React,{useState, useEffect} from 'react';
-import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { Button, Modal,ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React,{useState, useEffect} from "react"
+import { Button, Modal,ModalHeader, ModalBody, ModalFooter } from "reactstrap"
 
-
-const EditsTask = ({ modal, toggle,updateTask,taskObj }) => {
-    const [category, setCategory] = useState('');
-    const [discription, setDiscription] = useState('');
+const EditTask = ({ modal, toggle,updateTask,taskObj }) => {
+    const [category, setCategory] = useState("");
+    const [discription, setDiscription] = useState("");
     
     const handleChange = (e) =>{
 
-        const {name,value} = e.target// Accept A Input Value
+        const {name,value} = e.target
 
         if(name === "category"){
             setCategory(value)
@@ -17,10 +15,11 @@ const EditsTask = ({ modal, toggle,updateTask,taskObj }) => {
         else{
             setDiscription(value)
         }
+
     }
     
     const handleUpdate= (e) =>{
-        e.preventDefault()//Stop The Page Reloading .!
+        e.preventDefault()
         let tempObj = {}
         tempObj["Name"] = category
         tempObj["Description"] = discription
@@ -29,33 +28,31 @@ const EditsTask = ({ modal, toggle,updateTask,taskObj }) => {
 
     useEffect(() =>{
         setCategory(taskObj.Name)
-        setDiscription(taskObj.discription)
+        setDiscription(taskObj.Discription)
     },[])
 
-
-    //HTML Code
     return (
        <Modal isOpen={modal} toggle={toggle}>
            <ModalHeader toggle={toggle}>Update Task</ModalHeader>
            <ModalBody>
                <form>
-                    <div className='form-group'>
+                    <div className="form-group">
                         <label>Task Category</label>
-                        <input type="text" className='mb-1 form-control' value={category} onChange = {handleChange} name="category"/>
+                        <input type="text" className="mb-1 form-control" value={category} onChange = {handleChange} name="category"/>
                     </div>
-                    <div className='from-group'>
+                    <div className="from-group">
                          <label>Task Discription</label>
                         <textarea  rows="5" className='form-control' value={discription} onChange = {handleChange} name="discription"/>
                     </div>
                </form>
            </ModalBody>
             <ModalFooter>
-            <Button color='primary' onClick={handleUpdate}>Update</Button>
-            <Button color='secondary' onClick={toggle}>Cancel</Button>
+            <Button color="primary" onClick={handleUpdate}>Update</Button>
+            <Button color="danger" onClick={toggle}>Cancel</Button>
             </ModalFooter>
        </Modal>
 
     )
 }
 
-export default EditsTask;
+export default EditTask;

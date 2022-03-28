@@ -1,8 +1,7 @@
-import React,{useState, useEffect} from 'react';
-import "../CSS/Category.css";
-import CreateTask from '../../Models/CreateTask';
-import CategoryCards from './CategoryCards';
-
+import React,{useState, useEffect} from "react";
+import "../Design/Category.css";
+import CreateTask from "../../Configs/CreateTask";
+import CategoryCards from "./CategoryCards"
 const Category = () => {
 
   const[taskList, setTaskList] = useState([]);
@@ -13,27 +12,29 @@ const Category = () => {
       let obj = JSON.parse(arr)
        setTaskList(obj)
      }
-   },[])//Empty Array
+   },[])//Dont Repeat Reloading.!
   
   const saveTask = (taskObj) =>{
     let tempList = taskList
     tempList.push(taskObj)
     localStorage.setItem("taskList", JSON.stringify(tempList))
-    setModal(false)
     setTaskList(tempList)
   }
-
+  
 //HTML Code
   return (
-    <>
-      <div className='category_list'>
+    <React.Fragment>
+      <div className="category_list">
        <div>
          {taskList && taskList.map((obj ,index)=> <CategoryCards taskObj = {obj} index={index} />) }
        </div>
       </div>
       <CreateTask save={saveTask}/>
-    </>
-  )
-}
+      <div>
+      </div>
+    </React.Fragment>
+    )
+  }
+
   
 export default Category;

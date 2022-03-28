@@ -1,0 +1,27 @@
+.category_list {
+    background-color: rgb(236, 119, 76);
+    width: 35rem;
+    margin: 0.5rem auto;
+    height: auto;
+    box-shadow: 0 0 3px #0df120;
+    padding-bottom: 1rem;
+    align-items: center;
+    opacity: 0.9;
+  }
+  
+/* h4{
+    font-weight: lighter;
+    color:#00ff80;
+    border: 1px solid #d2f70593;
+    padding: 0.2rem;
+    font-size: 1.4rem;
+    text-align: center;
+    background-color: #0E1224;
+}
+
+h4:hover{
+    color: white;
+    background-color: #09C16C;
+    border: 1px solid white;
+}
+   */ 

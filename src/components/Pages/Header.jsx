@@ -1,11 +1,11 @@
+import React from "react";
 import { Outlet, Link } from "react-router-dom";
-// import "../../Models/
-import "../CSS/Home.css"
+import "../Design/Header.css";
 
-const Home = () => {
+const Header = () => {
   return (
-    <> 
-    {/*<></> to avoid the Unnecessary div element */}
+    <React.Fragment> 
+    {/*<React.Fragment></React.Fragment> to avoid the Unnecessary div element */}
       <nav>
         <ul>
           <li className="schedule-link">
@@ -17,8 +17,8 @@ const Home = () => {
         </ul>
       </nav>
       <Outlet />
-    </>
+    </React.Fragment>
   )
 };
 
-export default Home;
+export default Header;
